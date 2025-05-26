@@ -139,7 +139,7 @@ async function parseFile(filePath, originalName) {
   if (ext === 'xlsx' || ext === 'xls') {
     const workbook = xlsx.readFile(filePath);
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    return xlsx.utils.sheet_to_json(sheet);
+    return xlsx.utils.sheet_to_json(sheet,{raw: false});
   }
 
   if (ext === 'docx') {
